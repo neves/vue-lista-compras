@@ -1,0 +1,15 @@
+{
+  "name": "vue-lista-compras",
+  "version": "1.0.0",
+  "description": "Web App de lista para compras em mercados criado utilizando Vue.js 2.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "live-server --host=0.0.0.0 ."
+  },
+  "keywords": ["vue.js"],
+  "author": "Marcos Neves",
+  "license": "MIT",
+  "dependencies": {
+    "live-server": "^1.1.0"
+  }
+}
