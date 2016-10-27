@@ -1,0 +1,165 @@
+/* Os seletores estão declarados na ordem com que aparecem no html */
+html, body, footer {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+html, body {
+  height: 100%;
+}
+
+#app {
+  min-height: 100vh;
+  background-color: white;
+}
+
+main {
+  padding: 0 10px;
+}
+
+/* Título do app */
+h2 {
+  text-align: center;
+  border-bottom: 1px solid silver;
+  margin-top: 0;
+}
+
+/* input e botão para adicionar novos produtos */
+form {
+  display: flex;
+  justify-content: center;
+  width: 300px;
+  margin: auto;
+}
+
+form input[type=text] {
+  flex-grow: 1;
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+form input[type=submit] {
+  padding: 4px 16px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+/* contador de produtos */
+h6 {
+  text-align: center;
+}
+
+/* lista com os produtos */
+ol {
+  border-radius: 4px;
+  border: 1px solid  silver;
+  width: 300px;
+  margin: auto;
+  padding: 0;
+}
+
+ol li {
+  padding: 10px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid silver;
+}
+
+ol li p input[type=text] {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-top: -1px;
+  margin-left: -1px;
+}
+
+ol li:last-child {
+  border-bottom: none;
+}
+
+ol li p {
+  flex-grow: 1;
+  margin: 0 12px;
+  transition: color 0.4s;
+}
+
+ol li p span {
+  display: block;
+}
+
+ol li a {
+  color: darkred;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+ol li a:hover {
+  text-decoration: none;
+  color: red;
+}
+
+ol li.comprado p {
+  text-decoration: line-through;
+  color: silver;
+}
+
+/* vue transitions */
+.v-enter-active, .v-leave-active {
+  transition: opacity .5s
+}
+.v-enter, .v-leave-active {
+  opacity: 0
+}
+
+/* filtros no rodapé */
+footer {
+  margin-top: 16px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav button:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+}
+
+nav button:nth-child(2) {
+  border-radius: 0;
+  border-right: none;
+}
+
+nav button:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+
+}
+
+/* modificações para celulares */
+@media (max-device-width: 480px) {
+  /* fixar rodapé na parte inferior do celular */
+  footer {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    background-color: white;
+  }
+
+  /* margem inferior do tamanho do rodapé */
+  body {
+    padding-bottom: 40px;
+  }
+
+  /* ocupar toda a largura da tela disponível */
+  ol, form {
+    width: auto;
+  }
+}
