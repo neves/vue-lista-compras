@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Compras</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/marx/2.0.4/marx.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+  <div id="app">
+    <main>
+      <h2>
+        {{ titulo.toUpperCase().substr(0, tituloMaxlength) }}
+      </h2>
+
+      <form @submit.prevent="add">
+        <input type="text"
+               :maxlength="tituloMaxlength"
+               v-model="novoProduto"
+               v-autofocus
+               placeholder="digite um novo produto...">
+
+        <input type="submit"
+               :disabled="novoProduto.trim().length === 0"
+               value="+">
+      </form>
+
+      <h6>
+        {{ produtos.length }}
+        produtos
+      </h6>
+
+      <ol>
+        <li v-for="(produto, i) in produtos" :class="{comprado: produto.comprado}">
+          <input type="checkbox" v-model="produto.comprado">
+
+          <p>
+            <input type="text"
+                   v-model="produto.nome"
+                   @blur="selecionar(null)"
+                   @keydown.enter="selecionar(null)"
+                   v-autofocus
+                   v-if="editando(produto)">
+
+            <span v-else
+                  @click="selecionar(produto)">
+              {{ produto.nome }}
+            </span>
+          </p>
+
+          <a @click="excluir(i)">&times;</a>
+        </li>
+      </ol>
+    </main>
+
+    <footer>
+      <nav>
+        <button disabled>
+          todos
+        </button>
+
+        <button>
+          comprados
+        </button>
+
+        <button>
+          pendentes
+        </button>
+      </nav>
+    </footer>
+  </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
